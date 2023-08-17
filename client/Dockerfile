@@ -10,7 +10,7 @@ COPY . .
 
 RUN yarn build
 
-RUN yarn add global serve
+RUN yarn global add serve
 
 EXPOSE 3000
 
