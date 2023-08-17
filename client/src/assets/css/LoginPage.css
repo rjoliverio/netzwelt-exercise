@@ -1,0 +1,40 @@
+.w-full {
+  width: 100%;
+}
+.h-screen {
+  height: 100vh;
+}
+.flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.items-center {
+  align-items: center;
+}
+.flex-col {
+  flex-direction: column;
+}
+.m-auto {
+  margin: auto;
+}
+.border {
+  border: 1px solid black;
+}
+.p-14 {
+  padding: 2rem;
+}
+.p-2 {
+  padding: 0.75rem;
+}
+.max-w-sm {
+  max-width: 24rem;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+.mt-5 {
+  margin-top: 1.25rem;
+}

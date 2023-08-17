@@ -12,7 +12,6 @@ function HomePage() {
     setDomLoaded(true);
   }, [initial]);
 
-  console.log(mapNodes(territories.data));
   useEffect(() => {
     if (!domLoaded) return;
 
@@ -20,7 +19,7 @@ function HomePage() {
     let i: number;
     for (i = 0; i < toggler.length; i++) {
       let el = toggler[i];
-      toggler[i].addEventListener("click", function () {
+      el.addEventListener("click", function () {
         el.parentElement?.querySelector(".nested")?.classList.toggle("active");
         el.classList.toggle("caret-down");
       });
@@ -44,7 +43,7 @@ function HomePage() {
     );
   };
   return (
-    <div className="App">
+    <div>
       <h2>Territories</h2>
       <p>Here are the list of territories</p>
       <ul id="myUL">
