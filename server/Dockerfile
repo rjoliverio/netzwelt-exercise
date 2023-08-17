@@ -1,7 +1,13 @@
-FROM node:18
-WORKDIR /app
-COPY . /app
-RUN npm install
-ENV PORT 8080
-EXPOSE 8080
-CMD ["npm", "start"]
+FROM node:14
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN yarn
+
+COPY . .
+
+EXPOSE 8000
+
+CMD [ "node", "index.js" ]
