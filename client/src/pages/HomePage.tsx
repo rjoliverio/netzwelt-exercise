@@ -18,7 +18,11 @@ function HomePage() {
   useEffect(() => {
     if (territories) {
       setMappedNode(mapNodes(territories as ITerritory[]));
+    }
+  }, [territories]);
 
+  useEffect(() => {
+    if (mappedNode && territories) {
       let toggler = document.getElementsByClassName("caret");
       let i: number;
       for (i = 0; i < toggler.length; i++) {
@@ -31,7 +35,7 @@ function HomePage() {
         });
       }
     }
-  }, [territories]);
+  }, [mappedNode, territories]);
 
   const traverse = (node: ITerritory, depth: number = 0) => {
     return (
