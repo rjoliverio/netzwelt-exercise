@@ -3,6 +3,7 @@ const { default: axios } = require("axios");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
+const verifyTokenMiddleware = require("./middleware/verifyTokenMiddleware");
 
 const app = express();
 app.use(bodyParser.json());
@@ -36,6 +37,11 @@ app.post("/account/login", async (req, res) => {
         message: error.response?.data?.message || error.message,
       });
     });
+});
+
+app.get("/", verifyTokenMiddleware, async (req, res) => {
+  const jsonResponse = await request.get("/Territories/All");
+  res.send(jsonResponse.data);
 });
 
 app.listen(process.env.PORT, () => {
