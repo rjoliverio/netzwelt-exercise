@@ -1,5 +1,6 @@
 require("dotenv").config();
 const { default: axios } = require("axios");
+const cors = require("cors");
 const express = require("express");
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
@@ -8,6 +9,11 @@ const verifyTokenMiddleware = require("./middleware/verifyTokenMiddleware");
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  cors({
+    origin: process.env.CLIENT_URL,
+  })
+);
 
 const request = axios.create({
   baseURL: process.env.JSON_API_URL,
@@ -41,7 +47,7 @@ app.post("/account/login", async (req, res) => {
 
 app.get("/", verifyTokenMiddleware, async (req, res) => {
   const jsonResponse = await request.get("/Territories/All");
-  res.send(jsonResponse.data);
+  res.send(jsonResponse.data.data);
 });
 
 app.listen(process.env.PORT, () => {
