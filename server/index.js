@@ -37,7 +37,7 @@ app.post("/account/login", async (req, res) => {
       });
     })
     .catch((error) => {
-      res.send({
+      res.status(404).send({
         success: false,
         data: null,
         message: error.response?.data?.message || error.message,

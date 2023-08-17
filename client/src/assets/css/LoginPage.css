@@ -38,3 +38,9 @@
 .mt-5 {
   margin-top: 1.25rem;
 }
+.mt-2 {
+  margin-top: 0.8rem;
+}
+.text-red {
+  color: red;
+}
